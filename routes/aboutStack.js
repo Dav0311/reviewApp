@@ -1,43 +1,33 @@
-import { createStackNavigator } from "react-navigation-stack";
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
 import About from '../screens/about';
 import ReviewDetails from '../screens/reviewDetails';
-import React from "react";
-import Header from "../shared/header";
-const screens = {
+import Header from '../shared/header';
 
-    About: {
-        screen:About,
-        navigationOptions: ( {navigation} ) => {
-            return {
-                HeaderTitle:()=> <Header navigation={navigation} title='About GameZone'/>,
-            }
-            // headerStyle:{
-            //     backgroundColor:'#eee'
-            // }
-        }
-    },
-    ReviewDetails :{
-        screen:ReviewDetails,
-        navigationOptions:{
-            title:'Review Details',
-            // headerStyle:{
-            //     backgroundColor:'#eee'
-            // }
-        }
-    }
+const Stack = createStackNavigator();
 
-}
-
-const AboutStack= createStackNavigator(screens, {
-    defaultNavigationOptions: {
+export default function AboutStack() {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: { backgroundColor: '#eee', height: 60 },
         headerTintColor: '#444',
-        headerStyle:{
-
-            backgroundColor:'#eee',
-            height:60,
-
-        }
-    }
-});
-
-export default AboutStack;
+      }}
+    >
+      <Stack.Screen
+        name="About"
+        component={About}
+        options={({ navigation }) => ({
+          headerTitle: () => <Header navigation={navigation} title="About GameZone" />,
+        })}
+      />
+      <Stack.Screen
+        name="ReviewDetails"
+        component={ReviewDetails}
+        options={{
+          title: 'Review Details',
+        }}
+      />
+    </Stack.Navigator>
+  );
+}

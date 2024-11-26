@@ -54,7 +54,7 @@ export default function Home ( {navigation} ) {
                         <MaterialIcons
                         name='close'
                         size={24}
-                        style={{ ...style.modalToggle, ...styles.modalClose }}
+                        style={{ ...styles.modalToggle, ...styles.modalClose }}
                         onPress={() => setModalOpen(false)}
                         />
                     <ReviewForm addReview= { addReview } />
@@ -65,7 +65,7 @@ export default function Home ( {navigation} ) {
             <MaterialIcons
                 name='add'
                 size={24}
-                style={style.modalToggle}
+                style={styles.modalToggle}
                 onPress={() => setModalOpen(true)}
             />
 

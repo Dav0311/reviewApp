@@ -11,7 +11,7 @@ export default function Card (props) {
     )
 }
 
-const styles = StyleShee.create({
+const styles = StyleSheet.create({
 
     card:{
         borderRadius:6,
